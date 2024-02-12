@@ -65,7 +65,7 @@ public class DeleteCourierTest {
     @DisplayName("Удаление курьера с несуществующим id")
     @Description("Негативная проверка удаления курьера с несуществующим id")
     public void deleteCourierWithNonExistIdTest() {
-        ValidatableResponse response = courierClient.deleteCourier(String.valueOf(ThreadLocalRandom.current().nextInt(1, 99999 + 1)));
+        ValidatableResponse response = courierClient.deleteCourier(String.valueOf(ThreadLocalRandom.current().nextInt(1, 9)));
         response.assertThat()
                 .statusCode(SC_NOT_FOUND)
                 .body("message", equalTo("Курьера с таким id нет."));
