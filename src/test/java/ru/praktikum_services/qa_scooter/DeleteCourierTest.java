@@ -57,15 +57,15 @@ public class DeleteCourierTest {
     public void deleteCourierNotIdTest() {
         ValidatableResponse response = courierClient.deleteCourier("");
         response.assertThat()
-                .statusCode(SC_NOT_FOUND)
-                .body("message", equalTo("Not Found."));
+                .statusCode(SC_BAD_REQUEST)
+                .body("message", equalTo("Недостаточно данных для удаления курьера"));
     }
 
     @Test
     @DisplayName("Удаление курьера с несуществующим id")
     @Description("Негативная проверка удаления курьера с несуществующим id")
     public void deleteCourierWithNonExistIdTest() {
-        ValidatableResponse response = courierClient.deleteCourier(String.valueOf(ThreadLocalRandom.current().nextInt(100000, 999999 + 1)));
+        ValidatableResponse response = courierClient.deleteCourier(String.valueOf(ThreadLocalRandom.current().nextInt(1, 99999 + 1)));
         response.assertThat()
                 .statusCode(SC_NOT_FOUND)
                 .body("message", equalTo("Курьера с таким id нет."));
