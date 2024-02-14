@@ -7,7 +7,7 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-abstract class RestClient {
+public abstract class RestClient {
 
     protected RequestSpecification requestSpecification() {
         return new RequestSpecBuilder()

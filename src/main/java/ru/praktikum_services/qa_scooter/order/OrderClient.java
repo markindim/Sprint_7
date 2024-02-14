@@ -1,12 +1,13 @@
 package ru.praktikum_services.qa_scooter.order;
 
+import ru.praktikum_services.qa_scooter.client.RestClient;
 import ru.praktikum_services.qa_scooter.data.OrderData;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
 import static io.restassured.RestAssured.given;
 
-public class OrderClient extends RestOrder {
+public class OrderClient extends RestClient {
     private static final String ORDERS_CREATE_PATH = "/api/v1/orders";
     private static final String ORDERS_LIST_PATH = "/api/v1/orders";
 
