@@ -57,8 +57,8 @@ public class DeleteCourierTest {
     public void deleteCourierNotIdTest() {
         ValidatableResponse response = courierClient.deleteCourier("");
         response.assertThat()
-                .statusCode(SC_BAD_REQUEST)
-                .body("message", equalTo("Недостаточно данных для удаления курьера"));
+                .statusCode(SC_NOT_FOUND)
+                .body("message", equalTo("Not Found."));
     }
 
     @Test
